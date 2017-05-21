@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 Common", "0 Common", "{A87D49CE-E6D4-47D8-AF9D-74C152AD8FC6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Presentation", "1 Presentation", "{0DC26472-A6AA-48F6-95B2-4A7600A94E4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Service", "2 Service", "{75DE09A4-2B76-4C7A-A550-795AC7EF2BB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 BLL", "3 BLL", "{22A3E6D7-BD11-4C4B-99B5-19058B28EA4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 DAL", "4 DAL", "{9ADDED58-B12A-42C8-B250-BD3024796354}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 Test", "5 Test", "{30C2DD75-8923-46EE-B5F3-91B1F0136C4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.PaymentGateway.Common.Models", "OpenQbit.PaymentGateway.Common.Models\OpenQbit.PaymentGateway.Common.Models.csproj", "{341E995F-08D4-465D-B233-17924BC6F02C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{341E995F-08D4-465D-B233-17924BC6F02C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{341E995F-08D4-465D-B233-17924BC6F02C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{341E995F-08D4-465D-B233-17924BC6F02C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{341E995F-08D4-465D-B233-17924BC6F02C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{341E995F-08D4-465D-B233-17924BC6F02C} = {A87D49CE-E6D4-47D8-AF9D-74C152AD8FC6}
+	EndGlobalSection
+EndGlobal
