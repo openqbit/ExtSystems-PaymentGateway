@@ -8,7 +8,7 @@ namespace OpenQbit.PaymentGateway.Common.Models
 {
     public class Responce
     {
-        public string ResponceId { get; set; }
+        public int ResponceId { get; set; }
         public string status { get; set; }
         public string MessageDetails { get; set; }
         public DateTime RespondTime { get; set; }
@@ -16,6 +16,6 @@ namespace OpenQbit.PaymentGateway.Common.Models
         public int RequestId { get; set; }
         
         public virtual Request Request { get; set; }
-        public virtual Transaction Transaction { get; set; }
+        
     }
 }

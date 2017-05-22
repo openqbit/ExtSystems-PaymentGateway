@@ -11,7 +11,7 @@ namespace OpenQbit.PaymentGateway.DataAccess.DAL
 {
     public class PaymentGatewayContext : DbContext 
     {
-        public PaymentGatewayContext() : base("OpenQbit.PaymentGatewayDB") {}
+        public PaymentGatewayContext() : base("OpenQbitPaymentGatewayDB") {}
         public DbSet<Bank> Bank { get; set; }
         public DbSet<Merchant> Merchant { get; set; }
         public DbSet<Request> Request { get; set; }
