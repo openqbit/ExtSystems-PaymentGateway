@@ -8,7 +8,7 @@ namespace OpenQbit.PaymentGateway.Common.Models
 {
     public class Request
     {
-        public int RequestId { get; set; }
+        public int Id { get; set; }
         public string CreaditCardNo { get; set; }
         public string CreaditCardCCV { get; set; }
         public string CreaditCardName { get; set; }        
@@ -19,8 +19,8 @@ namespace OpenQbit.PaymentGateway.Common.Models
 
         public int MarchantId { get; set; }
 
-        public int ResponceId { get; set; }
+        
         public virtual Merchant Marchant { get; set; }
-        public virtual Responce Responce { get; set; }
+       // public virtual Responce Responce { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace OpenQbit.PaymentGateway.Common.Models
 {
     public class Bank
     {
-        public int BankId { get; set; }
+        public int Id { get; set; }
         public string BankName { get; set; }
         public string CreaditCardSequence { get; set; }
     }

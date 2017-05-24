@@ -8,7 +8,7 @@ namespace OpenQbit.PaymentGateway.Common.Models
 {
     public class Responce
     {
-        public int ResponceId { get; set; }
+        public int Id { get; set; }
         public string status { get; set; }
         public string MessageDetails { get; set; }
         public DateTime RespondTime { get; set; }

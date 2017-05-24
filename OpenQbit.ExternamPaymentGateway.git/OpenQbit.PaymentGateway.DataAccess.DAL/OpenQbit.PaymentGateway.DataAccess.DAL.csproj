@@ -50,6 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Migrations\201705240545232_DBInit.cs" />
+    <Compile Include="Migrations\201705240545232_DBInit.Designer.cs">
+      <DependentUpon>201705240545232_DBInit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PaymentGatewayContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +67,11 @@
       <Project>{341e995f-08d4-465d-b233-17924bc6f02c}</Project>
       <Name>OpenQbit.PaymentGateway.Common.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201705240545232_DBInit.resx">
+      <DependentUpon>201705240545232_DBInit.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

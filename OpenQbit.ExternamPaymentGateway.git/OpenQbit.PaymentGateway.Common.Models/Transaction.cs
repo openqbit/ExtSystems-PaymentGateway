@@ -8,7 +8,7 @@ namespace OpenQbit.PaymentGateway.Common.Models
 {
     public class Transaction
     {
-        public int TransactionId { get; set; }
+        public int Id { get; set; }
         public int Amount { get; set; }
 
         public DateTime TransactionTime { get; set; }
