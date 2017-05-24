@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace OpenQbit.PaymentGateway.Common.Models
 {
-    public class Class1
+    public class Bank
     {
+        public int Id { get; set; }
+        public string BankName { get; set; }
+        public string CreaditCardSequence { get; set; }
     }
 }
