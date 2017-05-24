@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.PaymentGateway.Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.PaymentGateway.DataAccess.DAL", "OpenQbit.PaymentGateway.DataAccess.DAL\OpenQbit.PaymentGateway.DataAccess.DAL.csproj", "{8DB42DA5-62A2-4876-A7B6-E76EB49CCBA6}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OpenQubit.PaymentGateway.BLL.Web", "ClassLibrary1\OpenQubit.PaymentGateway.BLL.Web.xproj", "{6676DFC8-D2DA-4818-978C-1DADC2D89003}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "OpenQubit.PaymentGateway.Presentation.Web", "OpenQubit.PaymentGateway.Presentation.Web\OpenQubit.PaymentGateway.Presentation.Web.xproj", "{CC3D5DA6-6F52-4FA9-9381-5880395B0F43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{8DB42DA5-62A2-4876-A7B6-E76EB49CCBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DB42DA5-62A2-4876-A7B6-E76EB49CCBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DB42DA5-62A2-4876-A7B6-E76EB49CCBA6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6676DFC8-D2DA-4818-978C-1DADC2D89003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6676DFC8-D2DA-4818-978C-1DADC2D89003}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6676DFC8-D2DA-4818-978C-1DADC2D89003}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6676DFC8-D2DA-4818-978C-1DADC2D89003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC3D5DA6-6F52-4FA9-9381-5880395B0F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC3D5DA6-6F52-4FA9-9381-5880395B0F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC3D5DA6-6F52-4FA9-9381-5880395B0F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC3D5DA6-6F52-4FA9-9381-5880395B0F43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +46,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{341E995F-08D4-465D-B233-17924BC6F02C} = {A87D49CE-E6D4-47D8-AF9D-74C152AD8FC6}
 		{8DB42DA5-62A2-4876-A7B6-E76EB49CCBA6} = {9ADDED58-B12A-42C8-B250-BD3024796354}
-		{6676DFC8-D2DA-4818-978C-1DADC2D89003} = {22A3E6D7-BD11-4C4B-99B5-19058B28EA4A}
+		{CC3D5DA6-6F52-4FA9-9381-5880395B0F43} = {0DC26472-A6AA-48F6-95B2-4A7600A94E4A}
 	EndGlobalSection
 EndGlobal
