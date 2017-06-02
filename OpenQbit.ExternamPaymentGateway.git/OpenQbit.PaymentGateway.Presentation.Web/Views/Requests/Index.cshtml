@@ -1,0 +1,75 @@
+﻿@model IEnumerable<OpenQbit.PaymentGateway.Common.Models.Request>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Marchant.MerchantName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreaditCardNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreaditCardCCV)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreaditCardName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExpiaryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IPAddress)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marchant.MerchantName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreaditCardNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreaditCardCCV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreaditCardName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExpiaryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IPAddress)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
