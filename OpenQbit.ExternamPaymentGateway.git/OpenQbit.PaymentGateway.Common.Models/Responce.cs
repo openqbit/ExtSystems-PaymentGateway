@@ -12,9 +12,7 @@ namespace OpenQbit.PaymentGateway.Common.Models
         public string status { get; set; }
         public string MessageDetails { get; set; }
         public DateTime RespondTime { get; set; }
-
-        public int RequestId { get; set; }
-        
+        public int RequestId { get; set; }        
         public virtual Request Request { get; set; }
         
     }
