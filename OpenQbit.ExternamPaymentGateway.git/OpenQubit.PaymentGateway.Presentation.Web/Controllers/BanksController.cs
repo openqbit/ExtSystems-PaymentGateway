@@ -4,8 +4,10 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using OpenQbit.PaymentGateway.Common.Models;
+using System.Web;
 using System.Web.Mvc;
+using OpenQbit.PaymentGateway.Common.Models;
+using OpenQbit.PaymentGateway.DataAccess.DAL;
 
 namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
 {
@@ -19,13 +21,7 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
             return View(db.Bank.ToList());
         }
 
-        public ActionResult SearchByName(string namePart)
-        {
-            List<Bank> bankList = db.Bank.Where(C => C.Name.Contains(namePart)).ToList();
-            return View(bankList);
-        }
-
-        // GET: Bnaks/Details/5
+        // GET: Banks/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,22 +34,6 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
                 return HttpNotFound();
             }
             return View(bank);
-        }
-
-        // GET: Bnaks/Details/5
-        public ActionResult Details2(int? id)
-        {
-            if (id == null)
-            {
-                return null;
-            }
-            Bank bank = db.Bank.Find(id);
-            if (bank == null)
-            {
-                return null;
-            }
-
-            return Json(bank, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Banks/Create
@@ -136,19 +116,6 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
             return RedirectToAction("Index");
         }
 
-
-        public ActionResult GetList()
-        {
-            Bank[] bankArry = db.Bank.ToList().ToArray();
-
-            return Json(customerArry, JsonRequestBehavior.AllowGet);
-        }
-
-
-        public ActionResult Index2()
-        {
-            return View(db.Bank.ToList());
-        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -159,4 +126,3 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
         }
     }
 }
-

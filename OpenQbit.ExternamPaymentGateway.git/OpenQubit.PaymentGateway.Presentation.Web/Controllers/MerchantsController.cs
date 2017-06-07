@@ -1,7 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using OpenQbit.PaymentGateway.Common.Models;
+using OpenQbit.PaymentGateway.DataAccess.DAL;
 
 namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
 {
@@ -15,13 +21,7 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
             return View(db.Merchant.ToList());
         }
 
-        public ActionResult SearchByName(string namePart)
-        {
-            List<Merchant> merchantList = db.Merchant.Where(C => C.Name.Contains(namePart)).ToList();
-            return View(merchantList);
-        }
-
-        // GET: Bnaks/Details/5
+        // GET: Merchants/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,22 +34,6 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
                 return HttpNotFound();
             }
             return View(merchant);
-        }
-
-        // GET: Merchants/Details/5
-        public ActionResult Details2(int? id)
-        {
-            if (id == null)
-            {
-                return null;
-            }
-            Merchant merchant = db.Merchant.Find(id);
-            if (merchant == null)
-            {
-                return null;
-            }
-
-            return Json(merchant, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Merchants/Create
@@ -132,19 +116,6 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
             return RedirectToAction("Index");
         }
 
-
-        public ActionResult GetList()
-        {
-            Merchant[] merchantArry = db.Merchant.ToList().ToArray();
-
-            return Json(customerArry, JsonRequestBehavior.AllowGet);
-        }
-
-
-        public ActionResult Index2()
-        {
-            return View(db.Merchant.ToList());
-        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

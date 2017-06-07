@@ -1,18 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using OpenQbit.PaymentGateway.Common.Models;
+using OpenQbit.PaymentGateway.DataAccess.DAL;
 
 namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
 {
-    public class ResponceController : Controller
+    public class ResponcesController : Controller
     {
         private PaymentGatewayContext db = new PaymentGatewayContext();
 
         // GET: Responces
         public ActionResult Index()
         {
-            var responce = db.Responce.Include(i => i.Request);
+            var responce = db.Responce.Include(r => r.Request);
             return View(responce.ToList());
         }
 
@@ -21,7 +27,7 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadResponce);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Responce responce = db.Responce.Find(id);
             if (responce == null)
@@ -34,7 +40,7 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
         // GET: Responces/Create
         public ActionResult Create()
         {
-            ViewBag.RequestID = new SelectList(db.Request, "Id","CreaditCardNo","CreaditCardCCV","CreaditCardName","ExpiaryDate","Amount","RequestTime","IPAddress","MerchantID");
+            ViewBag.RequestId = new SelectList(db.Request, "Id", "CreaditCardNo");
             return View();
         }
 
@@ -52,7 +58,7 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.RequestID = new SelectList(db.Request, "Id", "CreaditCardNo", "CreaditCardCCV", "CreaditCardName", "ExpiaryDate", "Amount", "RequestTime", "IPAddress", "MerchantID", responce.RequestID);
+            ViewBag.RequestId = new SelectList(db.Request, "Id", "CreaditCardNo", responce.RequestId);
             return View(responce);
         }
 
@@ -61,14 +67,14 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadResponce);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Responce responce = db.Responce.Find(id);
             if (responce == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.RequestID = new SelectList(db.Request, "Id", "CreaditCardNo", "CreaditCardCCV", "CreaditCardName", "ExpiaryDate", "Amount", "RequestTime", "IPAddress", "MerchantID", responce.RequestID);
+            ViewBag.RequestId = new SelectList(db.Request, "Id", "CreaditCardNo", responce.RequestId);
             return View(responce);
         }
 
@@ -85,7 +91,7 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.RequestID = new SelectList(db.Request, "Id", "CreaditCardNo", "CreaditCardCCV", "CreaditCardName", "ExpiaryDate", "Amount", "RequestTime", "IPAddress", "MerchantID", responce.RequestID);
+            ViewBag.RequestId = new SelectList(db.Request, "Id", "CreaditCardNo", responce.RequestId);
             return View(responce);
         }
 
@@ -94,7 +100,7 @@ namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadResponce);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Responce responce = db.Responce.Find(id);
             if (responce == null)

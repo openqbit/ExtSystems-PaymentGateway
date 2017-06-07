@@ -1,120 +1,126 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using OpenQbit.PaymentGateway.Common.Models;
+using OpenQbit.PaymentGateway.DataAccess.DAL;
 
 namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
 {
-    public class TransactionController : Controller
+    public class RequestsController : Controller
     {
         private PaymentGatewayContext db = new PaymentGatewayContext();
 
-        // GET: Transactions
+        // GET: Requests
         public ActionResult Index()
         {
-            var transaction = db.Transaction.Include(i => i.Bank);
-            return View(transaction.ToList());
+            var request = db.Request.Include(r => r.Marchant);
+            return View(request.ToList());
         }
 
-        // GET: Transactions/Details/5
+        // GET: Requests/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Transaction transaction = db.Transaction.Find(id);
-            if (transaction == null)
+            Request request = db.Request.Find(id);
+            if (request == null)
             {
                 return HttpNotFound();
             }
-            return View(transaction);
+            return View(request);
         }
 
-        // GET: Transactions/Create
+        // GET: Requests/Create
         public ActionResult Create()
         {
-            ViewBag.BankID = new SelectList(db.Bank, "Id", "BankName", "CreaditCardSequence");
+            ViewBag.MarchantId = new SelectList(db.Merchant, "Id", "MerchantName");
             return View();
         }
 
-        // POST: Transactions/Create
+        // POST: Requests/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Amount,TransactionTime,BankId,ResponceId")] Transaction transaction)
+        public ActionResult Create([Bind(Include = "Id,CreaditCardNo,CreaditCardCCV,CreaditCardName,ExpiaryDate,Amount,RequestTime,IPAddress,MarchantId")] Request request)
         {
             if (ModelState.IsValid)
             {
-                db.Transaction.Add(transaction);
+                db.Request.Add(request);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.BankID = new SelectList(db.Bank, "Id", "BankName", "CreaditCardSequence", transaction.BankID);
-            return View(transaction);
+            ViewBag.MarchantId = new SelectList(db.Merchant, "Id", "MerchantName", request.MarchantId);
+            return View(request);
         }
 
-        // GET: Transactions/Edit/5
+        // GET: Requests/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Transaction transaction = db.Transaction.Find(id);
-            if (transaction == null)
+            Request request = db.Request.Find(id);
+            if (request == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.BankID = new SelectList(db.Bank, "Id", "BankName", "CreaditCardSequence", transaction.BankID);
-            return View(transaction);
+            ViewBag.MarchantId = new SelectList(db.Merchant, "Id", "MerchantName", request.MarchantId);
+            return View(request);
         }
 
-        // POST: Transactions/Edit/5
+        // POST: Requests/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Amount,TransactionTime,BankId,ResponceId")] Transaction transaction)
+        public ActionResult Edit([Bind(Include = "Id,CreaditCardNo,CreaditCardCCV,CreaditCardName,ExpiaryDate,Amount,RequestTime,IPAddress,MarchantId")] Request request)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(transaction).State = EntityState.Modified;
+                db.Entry(request).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.BankID = new SelectList(db.Bank, "Id", "BankName", "CreaditCardSequence", transaction.BankID);
-            return View(transaction);
+            ViewBag.MarchantId = new SelectList(db.Merchant, "Id", "MerchantName", request.MarchantId);
+            return View(request);
         }
 
-        // GET: Transactions/Delete/5
+        // GET: Requests/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Transaction transaction = db.Transaction.Find(id);
-            if (transaction == null)
+            Request request = db.Request.Find(id);
+            if (request == null)
             {
                 return HttpNotFound();
             }
-            return View(transaction);
+            return View(request);
         }
 
-        // POST: Transactions/Delete/5
+        // POST: Requests/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Transaction transaction = db.Transaction.Find(id);
-            db.Transaction.Remove(transaction);
+            Request request = db.Request.Find(id);
+            db.Request.Remove(request);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-        
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

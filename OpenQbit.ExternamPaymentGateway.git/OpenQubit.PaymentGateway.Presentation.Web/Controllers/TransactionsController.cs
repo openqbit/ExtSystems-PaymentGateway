@@ -1,116 +1,126 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
+using System.Web;
+using System.Web.Mvc;
+using OpenQbit.PaymentGateway.Common.Models;
+using OpenQbit.PaymentGateway.DataAccess.DAL;
 
 namespace OpenQubit.PaymentGateway.Presentation.Web.Controllers
 {
-    public class RequestController : Controller
+    public class TransactionsController : Controller
     {
         private PaymentGatewayContext db = new PaymentGatewayContext();
 
-        // GET: Requests
+        // GET: Transactions
         public ActionResult Index()
         {
-            var request = db.Request.Include(i => i.Merchant);
-            return View(request.ToList());
+            var transaction = db.Transaction.Include(t => t.Bank).Include(t => t.Responce);
+            return View(transaction.ToList());
         }
 
-        // GET: Requests/Details/5
+        // GET: Transactions/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Request request = db.Request.Find(id);
-            if (request == null)
+            Transaction transaction = db.Transaction.Find(id);
+            if (transaction == null)
             {
                 return HttpNotFound();
             }
-            return View(request);
+            return View(transaction);
         }
 
-        // GET: Requests/Create
+        // GET: Transactions/Create
         public ActionResult Create()
         {
-            ViewBag.MerchantID = new SelectList(db.Merchant, "Id", "MarchantName");
+            ViewBag.BankId = new SelectList(db.Bank, "Id", "BankName");
+            ViewBag.ResponceId = new SelectList(db.Responce, "Id", "status");
             return View();
         }
 
-        // POST: Requests/Create
+        // POST: Transactions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CreaditCardNo,CreaditCardCCV,CreaditCardName,ExpiaryDate,Amount,RequestTime,IPAddress,MerchantID")] Request request)
+        public ActionResult Create([Bind(Include = "Id,Amount,TransactionTime,BankId,ResponceId")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
-                db.Request.Add(request);
+                db.Transaction.Add(transaction);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.MerchantID = new SelectList(db.Merchant, "Id", "MerchantName", request.MerchantID);
-            return View(request);
+            ViewBag.BankId = new SelectList(db.Bank, "Id", "BankName", transaction.BankId);
+            ViewBag.ResponceId = new SelectList(db.Responce, "Id", "status", transaction.ResponceId);
+            return View(transaction);
         }
 
-        // GET: Requests/Edit/5
+        // GET: Transactions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Request request = db.Request.Find(id);
-            if (request == null)
+            Transaction transaction = db.Transaction.Find(id);
+            if (transaction == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.MerchantID = new SelectList(db.Merchant, "Id", "MerchantName", request.MerchantID);
-            return View(request);
+            ViewBag.BankId = new SelectList(db.Bank, "Id", "BankName", transaction.BankId);
+            ViewBag.ResponceId = new SelectList(db.Responce, "Id", "status", transaction.ResponceId);
+            return View(transaction);
         }
 
-        // POST: Requests/Edit/5
+        // POST: Transactions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CreaditCardNo,CreaditCardCCV,CreaditCardName,ExpiaryDate,Amount,RequestTime,IPAddress,MerchantID")] Request request)
+        public ActionResult Edit([Bind(Include = "Id,Amount,TransactionTime,BankId,ResponceId")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(request).State = EntityState.Modified;
+                db.Entry(transaction).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.MerchantID = new SelectList(db.Merchant, "Id", "MerchantName", request.MerchantID);
-            return View(request);
+            ViewBag.BankId = new SelectList(db.Bank, "Id", "BankName", transaction.BankId);
+            ViewBag.ResponceId = new SelectList(db.Responce, "Id", "status", transaction.ResponceId);
+            return View(transaction);
         }
 
-        // GET: Requests/Delete/5
+        // GET: Transactions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Request request = db.Request.Find(id);
-            if (request == null)
+            Transaction transaction = db.Transaction.Find(id);
+            if (transaction == null)
             {
                 return HttpNotFound();
             }
-            return View(request);
+            return View(transaction);
         }
 
-        // POST: Requests/Delete/5
+        // POST: Transactions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Request request = db.Request.Find(id);
-            db.Request.Remove(request);
+            Transaction transaction = db.Transaction.Find(id);
+            db.Transaction.Remove(transaction);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

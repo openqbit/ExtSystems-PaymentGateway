@@ -1,0 +1,83 @@
+﻿@model OpenQbit.PaymentGateway.Common.Models.Request
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Request</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Marchant.MerchantName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marchant.MerchantName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreaditCardNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreaditCardNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreaditCardCCV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreaditCardCCV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreaditCardName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreaditCardName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpiaryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpiaryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IPAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IPAddress)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
