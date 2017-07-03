@@ -21,6 +21,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.PaymentGateway.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQubit.PaymentGateway.Presentation.Web", "OpenQubit.PaymentGateway.Presentation.Web\OpenQubit.PaymentGateway.Presentation.Web.csproj", "{0E9797D9-9E26-46BA-8E26-2BFD437362A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.PaymentGateway.BLL.Service", "OpenQbit.PaymentGateway.BLL.Service\OpenQbit.PaymentGateway.BLL.Service.csproj", "{6CAAE985-114F-46B3-93B6-A3FE10FA696E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.PaymentGateway.BLL.Contracts", "OpenQbit.PaymentGateway.BLL.Contracts\OpenQbit.PaymentGateway.BLL.Contracts.csproj", "{E2AD7CFC-8D8D-46BF-9821-F26CFCEA06C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.PaymentGateway.DAL.Contracts", "OpenQbit.PaymentGateway.DataAccess.Contracts\OpenQbit.PaymentGateway.DAL.Contracts.csproj", "{264D39D2-5A45-4D8F-9282-DD617AE5D159}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.PaymentGateway.Common.IOC", "OpenQbit.PaymentGateway.Common.IOC\OpenQbit.PaymentGateway.Common.IOC.csproj", "{3B1CC6F9-7B3C-40F1-A982-3D4EE86A523B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{BFBC78B4-3D65-4C08-BDB3-F13D19042BD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenQbit.PaymentGateway.Common.Utils.Logs", "OpenQbit.PaymentGateway.Common.Utils.Logs\OpenQbit.PaymentGateway.Common.Utils.Logs.csproj", "{E6B38489-DB06-4BA8-AB5E-CC2032C65F0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +51,26 @@ Global
 		{0E9797D9-9E26-46BA-8E26-2BFD437362A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E9797D9-9E26-46BA-8E26-2BFD437362A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E9797D9-9E26-46BA-8E26-2BFD437362A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CAAE985-114F-46B3-93B6-A3FE10FA696E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CAAE985-114F-46B3-93B6-A3FE10FA696E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CAAE985-114F-46B3-93B6-A3FE10FA696E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CAAE985-114F-46B3-93B6-A3FE10FA696E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2AD7CFC-8D8D-46BF-9821-F26CFCEA06C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2AD7CFC-8D8D-46BF-9821-F26CFCEA06C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2AD7CFC-8D8D-46BF-9821-F26CFCEA06C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2AD7CFC-8D8D-46BF-9821-F26CFCEA06C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{264D39D2-5A45-4D8F-9282-DD617AE5D159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{264D39D2-5A45-4D8F-9282-DD617AE5D159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{264D39D2-5A45-4D8F-9282-DD617AE5D159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{264D39D2-5A45-4D8F-9282-DD617AE5D159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B1CC6F9-7B3C-40F1-A982-3D4EE86A523B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B1CC6F9-7B3C-40F1-A982-3D4EE86A523B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B1CC6F9-7B3C-40F1-A982-3D4EE86A523B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B1CC6F9-7B3C-40F1-A982-3D4EE86A523B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6B38489-DB06-4BA8-AB5E-CC2032C65F0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6B38489-DB06-4BA8-AB5E-CC2032C65F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6B38489-DB06-4BA8-AB5E-CC2032C65F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6B38489-DB06-4BA8-AB5E-CC2032C65F0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,5 +79,11 @@ Global
 		{341E995F-08D4-465D-B233-17924BC6F02C} = {A87D49CE-E6D4-47D8-AF9D-74C152AD8FC6}
 		{8DB42DA5-62A2-4876-A7B6-E76EB49CCBA6} = {9ADDED58-B12A-42C8-B250-BD3024796354}
 		{0E9797D9-9E26-46BA-8E26-2BFD437362A9} = {0DC26472-A6AA-48F6-95B2-4A7600A94E4A}
+		{6CAAE985-114F-46B3-93B6-A3FE10FA696E} = {22A3E6D7-BD11-4C4B-99B5-19058B28EA4A}
+		{E2AD7CFC-8D8D-46BF-9821-F26CFCEA06C4} = {22A3E6D7-BD11-4C4B-99B5-19058B28EA4A}
+		{264D39D2-5A45-4D8F-9282-DD617AE5D159} = {9ADDED58-B12A-42C8-B250-BD3024796354}
+		{3B1CC6F9-7B3C-40F1-A982-3D4EE86A523B} = {A87D49CE-E6D4-47D8-AF9D-74C152AD8FC6}
+		{BFBC78B4-3D65-4C08-BDB3-F13D19042BD1} = {A87D49CE-E6D4-47D8-AF9D-74C152AD8FC6}
+		{E6B38489-DB06-4BA8-AB5E-CC2032C65F0F} = {BFBC78B4-3D65-4C08-BDB3-F13D19042BD1}
 	EndGlobalSection
 EndGlobal
