@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenQbit.PaymentGateway.DataAccess.DAL
+namespace OpenQbit.PaymentGateway.Common.Utils.Logs
 {
-    public class Class1
+    public interface ILogger
     {
+        bool LogError(string err);
     }
 }
